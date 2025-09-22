@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Road Accident Form</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#3b82f6'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        .custom-checkbox {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .custom-checkbox:checked {
+            background: #1e40af;
+            border-color: #1e40af;
+        }
+
+        .custom-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .custom-radio {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .custom-radio:checked {
+            border-color: #1e40af;
+        }
+
+        .custom-radio:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #1e40af;
+            border-radius: 50%;
+        }
+
+        .section-divider {
+            border-top: 2px solid #e5e7eb;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <div class="min-h-screen">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-primary mb-4">National Road Accident Form</h1>
+                <p class="text-lg text-gray-600">Complete this form in case of a road traffic accident</p>
+            </div>
+
+            <!-- Section 1: Your Details -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8 p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold mr-3">1</div>
+                    <h2 class="text-2xl font-semibold text-gray-900">Your Details</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Fill out this section prior to use and keep in your vehicle</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter your full name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Registration Number *</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., ABC123">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                        <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                        <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="+1 (555) 123-4567">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Address *</label>
+                        <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter your full address"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Owner</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="If different from driver">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Owner Address</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="If applicable">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Make/Model *</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., Toyota Camry 2020">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Color *</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., Silver">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Insurance Company *</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter your insurance company name">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: What to do -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8 p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold mr-3">2</div>
+                    <h2 class="text-2xl font-semibold text-gray-900">What to do in the event of a crash</h2>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</div>
+                            <p class="text-gray-700">Ensure everyone's safety first. Move to a safe location if possible and check for injuries.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</div>
+                            <p class="text-gray-700">Call emergency services (911) if there are injuries or significant damage.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</div>
+                            <p class="text-gray-700">Exchange information with other drivers using Section 3 of this form.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</div>
+                            <p class="text-gray-700">Document the scene with photos and complete Section 4 of this form.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">5</div>
+                            <p class="text-gray-700">Contact your insurance company as soon as possible to report the incident.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Exchanging Details -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8 p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold mr-3">3</div>
+                    <h2 class="text-2xl font-semibold text-gray-900">Exchanging Details</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Fill out in the event of a crash</p>
+
+                <!-- Tab Navigation -->
+                <div class="flex space-x-1 mb-6 bg-gray-100 p-1 rounded-lg">
+                    <button id="driver1-tab" class="px-4 py-2 rounded-md text-sm font-medium transition-colors bg-white text-primary shadow-sm">1st Driver</button>
+                    <button id="driver2-tab" class="px-4 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 hover:text-gray-900">2nd Driver</button>
+                    <button id="witness-tab" class="px-4 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 hover:text-gray-900">Witness</button>
+                </div>
+
+                <!-- Driver 1 Tab -->
+                <div id="driver1-content" class="tab-content">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">First Driver Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter driver's full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Registration Number *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., XYZ789">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="driver.email@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="+1 (555) 987-6543">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Address *</label>
+                            <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter driver's full address"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Owner</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="If different from driver">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Owner Address</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="If applicable">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Make/Model *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., Honda Accord 2019">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Color *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., Blue">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Insurance Company *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter insurance company name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Driver 2 Tab -->
+                <div id="driver2-content" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Second Driver Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter driver's full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Registration Number *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., DEF456">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="driver.email@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="+1 (555) 456-7890">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Address *</label>
+                            <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter driver's full address"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Owner</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="If different from driver">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Owner Address</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="If applicable">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Make/Model *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., Ford F-150 2021">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Color *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g., Red">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Insurance Company *</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter insurance company name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Witness Tab -->
+                <div id="witness-content" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Witness Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter witness's full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="+1 (555) 123-9876">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="witness.email@example.com">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Collision Details -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8 p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold mr-3">4</div>
+                    <h2 class="text-2xl font-semibold text-gray-900">Details of the Collision</h2>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Date and Time -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Date of Collision *</label>
+                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Time of Collision *</label>
+                            <input type="time" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Location of Collision *</label>
+                        <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Provide detailed location including street names, intersections, landmarks"></textarea>
+                    </div>
+
+                    <!-- Photo Upload -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Photos of the Incident</label>
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary transition-colors">
+                            <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                                <i class="ri-camera-line text-2xl text-gray-400"></i>
+                            </div>
+                            <p class="text-gray-600 mb-2">Upload photos of vehicles, damage, and scene</p>
+                            <button type="button" class="bg-primary text-white px-6 py-2 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">
+                                Choose Files
+                            </button>
+                            <input type="file" multiple accept="image/*" class="hidden">
+                        </div>
+                    </div>
+
+                    <!-- Incident Description -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Describe the Incident *</label>
+                        <p class="text-sm text-gray-600 mb-3">Include direction of travel, weather conditions, and sequence of events</p>
+                        <textarea rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Provide a detailed description of how the accident occurred, including the direction each vehicle was traveling, weather conditions at the time, road conditions, and any other relevant factors..."></textarea>
+                    </div>
+
+                    <!-- Sketch Area -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Sketch of the Scene</label>
+                        <p class="text-sm text-gray-600 mb-3">Draw a bird's eye view of the accident scene including vehicle positions and direction of travel</p>
+                        <div class="border border-gray-300 rounded-lg p-4 bg-white">
+                            <canvas id="sketch-canvas" class="w-full border border-gray-200 rounded cursor-crosshair" width="600" height="400" style="max-width: 100%; height: auto;"></canvas>
+                            <div class="flex space-x-2 mt-4">
+                                <button type="button" id="clear-canvas" class="bg-gray-500 text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-gray-600 transition-colors !rounded-button whitespace-nowrap">Clear</button>
+                                <button type="button" id="save-sketch" class="bg-primary text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Save Sketch</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Police Details -->
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Police Details (if applicable)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Log Number</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter police log number">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Occurrence Number</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter occurrence number">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Officer Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter officer's name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Officer Badge Number</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter badge number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Declaration Section -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8 p-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Declaration</h2>
+                <p class="text-gray-700 mb-6">I/we declare the aforementioned details to be true and accurate to the best of my/our knowledge.</p>
+
+                <div class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Print name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Signature</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Digital signature">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Print name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Signature</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Digital signature">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button type="button" class="bg-gray-500 text-white px-8 py-3 rounded-button font-medium hover:bg-gray-600 transition-colors !rounded-button whitespace-nowrap">
+                    <div class="w-5 h-5 inline-flex items-center justify-center mr-2">
+                        <i class="ri-save-line"></i>
+                    </div>
+                    Save Progress
+                </button>
+                <button type="button" class="bg-secondary text-white px-8 py-3 rounded-button font-medium hover:bg-blue-600 transition-colors !rounded-button whitespace-nowrap">
+                    <div class="w-5 h-5 inline-flex items-center justify-center mr-2">
+                        <i class="ri-printer-line"></i>
+                    </div>
+                    Print Form
+                </button>
+                <button type="button" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">
+                    <div class="w-5 h-5 inline-flex items-center justify-center mr-2">
+                        <i class="ri-send-plane-line"></i>
+                    </div>
+                    Submit Form
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script id="tab-functionality">
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = ['driver1', 'driver2', 'witness'];
+
+            tabs.forEach(tab => {
+                const tabButton = document.getElementById(`${tab}-tab`);
+                const tabContent = document.getElementById(`${tab}-content`);
+
+                tabButton.addEventListener('click', () => {
+                    tabs.forEach(t => {
+                        const btn = document.getElementById(`${t}-tab`);
+                        const content = document.getElementById(`${t}-content`);
+
+                        if (t === tab) {
+                            btn.classList.add('bg-white', 'text-primary', 'shadow-sm');
+                            btn.classList.remove('text-gray-600');
+                            content.classList.remove('hidden');
+                        } else {
+                            btn.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+                            btn.classList.add('text-gray-600');
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script id="canvas-functionality">
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('sketch-canvas');
+            const ctx = canvas.getContext('2d');
+            let isDrawing = false;
+            let lastX = 0;
+            let lastY = 0;
+
+            function getMousePos(e) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+
+                return {
+                    x: (e.clientX - rect.left) * scaleX,
+                    y: (e.clientY - rect.top) * scaleY
+                };
+            }
+
+            canvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                const pos = getMousePos(e);
+                lastX = pos.x;
+                lastY = pos.y;
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDrawing) return;
+
+                const pos = getMousePos(e);
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(pos.x, pos.y);
+                ctx.strokeStyle = '#1e40af';
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+
+                lastX = pos.x;
+                lastY = pos.y;
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                isDrawing = false;
+            });
+
+            canvas.addEventListener('mouseout', () => {
+                isDrawing = false;
+            });
+
+            document.getElementById('clear-canvas').addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+
+            document.getElementById('save-sketch').addEventListener('click', () => {
+                const dataURL = canvas.toDataURL();
+                const link = document.createElement('a');
+                link.download = 'accident-sketch.png';
+                link.href = dataURL;
+                link.click();
+            });
+        });
+    </script>
+
+    <script id="form-actions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const saveButton = document.querySelector('button:has(.ri-save-line)');
+            const printButton = document.querySelector('button:has(.ri-printer-line)');
+            const submitButton = document.querySelector('button:has(.ri-send-plane-line)');
+
+            saveButton.addEventListener('click', () => {
+                alert('Form progress saved successfully!');
+            });
+
+            printButton.addEventListener('click', () => {
+                window.print();
+            });
+
+            submitButton.addEventListener('click', () => {
+                alert('Form submitted successfully! You will receive a confirmation email shortly.');
+            });
+        });
+    </script>
+    <script>
+        ! function(t, e) {
+            var o, n, p, r;
+            e.__SV || (window.posthog = e, e._i = [], e.init = function(i, s, a) {
+                function g(t, e) {
+                    var o = e.split(".");
+                    2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function() {
+                        t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                    }
+                }(p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r);
+                var u = e;
+                for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function(t) {
+                        var e = "posthog";
+                        return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e
+                    }, u.people.toString = function() {
+                        return u.toString(1) + ".people (stub)"
+                    }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++) g(u, o[n]);
+                e._i.push([i, s, a])
+            }, e.__SV = 1)
+        }(document, window.posthog || []);
+        posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+            api_host: 'https://us.i.posthog.com',
+            autocapture: false,
+            capture_pageview: false,
+            capture_pageleave: false,
+            capture_performance: {
+                web_vitals: false,
+            },
+            rageclick: false,
+        })
+        window.shareKey = 'VuiG-DF0rnG_Wcjx7DwY8A';
+        window.host = 'readdy.ai';
+    </script>
+    <script src="https://static.readdy.ai/static/share.js"></script>
+</body>
+
+</html>
